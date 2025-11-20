@@ -5,7 +5,6 @@ import {
   mentors,
   navLinks,
   pricingPlans,
-  stats,
   supportHours,
 } from './data/siteContent';
 import type { ContactFormPayload } from './services/contactService';
@@ -136,19 +135,149 @@ const App = () => {
                 across Karnataka, Andhra Pradesh &amp; Tamil Nadu.
               </p>
               <div className="hero-features">
-                📚 Daily 1.5-Hour Online Classes + Topper Strategy + Personal Guidance
+                📚 Personal Guidance + Topper Strategy + Daily Study Plan 
               </div>
               <div className="cta-buttons">
                 <a href="#enroll" className="btn btn-primary" onClick={(event) => handleNavClick(event, 'enroll')}>
                   Enroll Now
                 </a>
-                <a
-                  href="#mentor-panel"
-                  className="btn btn-secondary"
-                  onClick={(event) => handleNavClick(event, 'mentor-panel')}
-                >
-                  Meet Our Mentors
-                </a>
+                <div className="auth-buttons">
+                  <a
+                    href="#login-student"
+                    className="btn btn-auth-signin"
+                    onClick={(event) => handleNavClick(event, 'login-student')}
+                  >
+                    Not signed in? Sign in
+                  </a>
+                  <a
+                    href="#login-student"
+                    className="btn btn-auth-login"
+                    onClick={(event) => handleNavClick(event, 'login-student')}
+                  >
+                    Already an user? Log in
+                  </a>
+                  <a
+                    href="#login-mentor"
+                    className="btn btn-auth-mentor"
+                    onClick={(event) => handleNavClick(event, 'login-mentor')}
+                  >
+                    Login for Mentors
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="problems" id="problems">
+          <div className="section-container">
+            <div className="section-header">
+              <h2 className="section-title">Major Challenges for NEET Aspirants – And How Shreyas Academy Transforms Their Journey</h2>
+            </div>
+            <div className="problems-content">
+              <div className="problems-intro reveal-on-scroll">
+                <p className="problems-lead">
+                  Every year, lakhs of students enroll in coaching classes that claim to prepare them for NEET. 
+                  But are they really getting what matters most for success?
+                </p>
+                <div className="problems-questions">
+                  <div className="question-item">
+                    <span className="question-icon">❌</span>
+                    <div className="question-content">
+                      <strong>Students are taught academics, but do they get proper, personalized guidance?</strong>
+                    </div>
+                    <div className="question-answer">
+                      <p>No — This is what Shreyas Academy is for.</p>
+                    </div>
+                  </div>
+                  <div className="question-item">
+                    <span className="question-icon">❌</span>
+                    <div className="question-content">
+                      <strong>Are they shown how to build and follow an effective plan till the exam?</strong>
+                    </div>
+                    <div className="question-answer">
+                      <p>No — This is what Shreyas Academy is for.</p>
+                    </div>
+                  </div>
+                  <div className="question-item">
+                    <span className="question-icon">❌</span>
+                    <div className="question-content">
+                      <strong>Do they receive consistent motivation to help them believe in their dream and push through tough times?</strong>
+                    </div>
+                    <div className="question-answer">
+                      <p>No — This is what Shreyas Academy is for.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="problems-miss reveal-on-scroll">
+                <h3 className="problems-subtitle">What Coaching Classes Miss</h3>
+                <p className="problems-description">
+                  Regular coaching just covers the syllabus. Very few address:
+                </p>
+                <div className="missed-points">
+                  <div className="missed-point">
+                    <div className="point-icon">🎯</div>
+                    <div>
+                      <h4>Personalized Discovery</h4>
+                      <p>Helping students discover what works for them as unique individuals.</p>
+                    </div>
+                  </div>
+                  <div className="missed-point">
+                    <div className="point-icon">📊</div>
+                    <div>
+                      <h4>Personal Monitoring</h4>
+                      <p>Monitoring every student&apos;s progress personally, guiding them at every step.</p>
+                    </div>
+                  </div>
+                  <div className="missed-point">
+                    <div className="point-icon">💡</div>
+                    <div>
+                      <h4>Real Experiences</h4>
+                      <p>Bringing in real, relatable experiences from toppers to solve doubts beyond textbooks.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="problems-solution reveal-on-scroll">
+                <h3 className="solution-title">Shreyas Academy: India&apos;s First Genuine NEET Mentorship Revolution</h3>
+                <p className="solution-intro">
+                  That&apos;s where Shreyas Academy stands apart:
+                </p>
+                <div className="solution-points">
+                  <div className="solution-point">
+                    <div className="solution-icon">🏆</div>
+                    <div>
+                      <h4>Elite Mentors from Top Medical Colleges</h4>
+                      <p>
+                        Students are mentored personally by experts from the best medical colleges in India — 
+                        not just teachers, but top NEET rank holders who have been in your shoes and cracked the code themselves.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="solution-point">
+                    <div className="solution-icon">🚀</div>
+                    <div>
+                      <h4>Beyond Academics: Complete Guidance</h4>
+                      <p>
+                        Our mentors don&apos;t just answer academic questions. They show you how to manage time, 
+                        overcome setbacks, and stay consistently motivated throughout the journey.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="solution-point">
+                    <div className="solution-icon">⭐</div>
+                    <div>
+                      <h4>Personal Attention for Every Student</h4>
+                      <p>
+                        Each student is monitored and supported at every stage — no one is left behind, 
+                        and everyone is treated as a future topper.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -180,34 +309,45 @@ const App = () => {
         <section className="about" id="about">
           <div className="section-container">
             <div className="section-header">
-              <h2 className="section-title">Why Choose Shreyas Academy?</h2>
+              <h2 className="section-title">Unlock Exciting Rewards with Every Achievement!</h2>
             </div>
             <div className="about-content">
               <div className="about-text">
-                <h2>Transform Your NEET Journey</h2>
-                <p>
-                  At Shreyas Academy, we believe in learning from those who&apos;ve walked the path successfully.
-                  Our mentors are not just high scorers – they&apos;re current MBBS students who understand the
-                  challenges you face and have proven strategies to overcome them.
+                <p className="rewards-intro">
+                  At Shreyas Academy, your dedication and hard work are truly valued. Here&apos;s how your performance can open doors to inspiring experiences and amazing prizes:
                 </p>
-                <p>
-                  With daily interactive sessions, personalized guidance, and topper-tested techniques, we provide
-                  everything you need to excel in NEET. Our approach combines rigorous academics with mental
-                  conditioning, time management, and exam strategies that have helped hundreds of students achieve
-                  their medical dreams.
-                </p>
-                <p>
-                  Join thousands of aspirants who trust Shreyas Academy for their NEET preparation and experience
-                  the difference that personalized mentorship makes.
-                </p>
-              </div>
-              <div className="stats-grid">
-                {stats.map((stat) => (
-                  <div className="stat-card reveal-on-scroll" key={stat.label}>
-                    <div className="stat-number">{stat.value}</div>
-                    <div className="stat-label">{stat.label}</div>
+                <div className="rewards-list">
+                  <div className="reward-item reveal-on-scroll">
+                    <div className="reward-icon">🏆</div>
+                    <div className="reward-content">
+                      <h3>Monthly Special Test Achievers</h3>
+                      <p>
+                        Score the target marks in our exclusive monthly tests, and you&apos;ll earn a sponsored campus tour of <strong>AIIMS Delhi</strong> or <strong>JIPMER</strong> — a once-in-a-lifetime chance to experience India&apos;s top medical colleges up close.
+                      </p>
+                    </div>
                   </div>
-                ))}
+                  <div className="reward-item reveal-on-scroll">
+                    <div className="reward-icon">⭐</div>
+                    <div className="reward-content">
+                      <h3>Weekly Test Stars</h3>
+                      <p>
+                        Consistently perform well in weekly tests? You&apos;ll win exciting prizes to keep your motivation high all year long.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="reward-item reveal-on-scroll">
+                    <div className="reward-icon">🎖️</div>
+                    <div className="reward-content">
+                      <h3>All India Rank Holders</h3>
+                      <p>
+                        For the champions who secure national ranks and stick with us in their journey, we&apos;re offering grand rewards and recognition packages that celebrate your extraordinary achievement on a national scale.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <p className="rewards-closing">
+                  No effort goes unnoticed at Shreyas Academy — every milestone unlocks real opportunities and unforgettable experiences that fuel your dreams and inspire you to reach new heights. Start your journey to greatness today, and discover just how far your hard work can take you!
+                </p>
               </div>
             </div>
           </div>
@@ -215,12 +355,6 @@ const App = () => {
 
         <section className="enroll" id="enroll">
           <div className="section-container">
-            <div className="section-header">
-              <h2 className="section-title">Choose Your Path to Success</h2>
-              <p className="section-subtitle">
-                Flexible plans designed for NEET aspirants at different stages of preparation
-              </p>
-            </div>
             <div className="pricing-grid">
               {pricingPlans.map((plan) => (
                 <div

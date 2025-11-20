@@ -37,13 +37,10 @@ export interface ContactDetail {
 
 export const navLinks: NavLink[] = [
   { id: 'home', label: 'Home' },
-  { id: 'mentor-panel', label: 'Mentor Panel' },
+  { id: 'problems', label: 'The Problem' },
+  { id: 'mentor-panel', label: 'Mentors' },
   { id: 'about', label: 'About' },
   { id: 'enroll', label: 'Enroll' },
-  { id: 'login-student', label: 'Login for Students' },
-  { id: 'login-mentor', label: 'Login for Mentors' },
-  { id: 'faqs', label: 'FAQs' },
-  { id: 'contact', label: 'Contact and Support' },
 ];
 
 export const mentors: Mentor[] = [
