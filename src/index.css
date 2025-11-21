@@ -75,6 +75,8 @@ button {
   align-items: center;
   gap: 1rem;
   flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-image {
@@ -110,7 +112,8 @@ button {
   padding: 0;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-link {
   color: var(--dark-gray);
   font-weight: 500;
   font-size: 15px;
@@ -118,9 +121,11 @@ button {
   position: relative;
   white-space: nowrap;
   display: block;
+  text-decoration: none;
 }
 
-.nav-links a::after {
+.nav-links a::after,
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -131,11 +136,13 @@ button {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-link:hover {
   color: var(--primary-blue);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-link:hover::after {
   width: 100%;
 }
 
@@ -1288,6 +1295,147 @@ button {
   width: 100%;
 }
 
+.signup {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.signup::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
+}
+
+.signup-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.signup-info h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.signup-info p {
+  font-size: 17px;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.signup-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 16px;
+}
+
+.benefit-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.benefit-item strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.benefit-item p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.signup-form {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.signup-form .form-group label {
+  display: block;
+  color: var(--black);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.signup-form .form-group input,
+.signup-form .form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--light-gray);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s ease;
+  color: var(--black);
+  background: var(--white);
+}
+
+.signup-form .form-group input:focus,
+.signup-form .form-group select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+.signup-form .form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231e40af' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.signup-form .btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.signup-page {
+  min-height: 100vh;
+}
+
+.signup-page .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px var(--shadow);
+  z-index: 1000;
+}
+
 .footer {
   background: var(--black);
   color: var(--white);
@@ -1371,7 +1519,8 @@ button {
   }
 
   .about-content,
-  .contact-content {
+  .contact-content,
+  .signup-content {
     grid-template-columns: 1fr;
   }
   
@@ -1586,6 +1735,14 @@ button {
 
   .solution-point:hover {
     transform: translateY(-5px);
+  }
+
+  .signup-info h2 {
+    font-size: 28px;
+  }
+
+  .signup-form {
+    padding: 1.5rem;
   }
 }
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   contactDetails,
   faqs,
@@ -101,10 +102,10 @@ const App = () => {
     <div>
       <nav className={`navbar ${navbarElevated ? 'elevated' : ''}`}>
         <div className="nav-container">
-          <div className="logo-section">
+          <Link to="/" className="logo-section">
             <img src={caduceusLogo} alt="Shreyas Academy Logo" className="logo-image" />
             <span className="logo-text">Shreyas Academy</span>
-          </div>
+          </Link>
           <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
             {navLinks.map((link) => (
               <li key={link.id}>
@@ -144,19 +145,18 @@ const App = () => {
                   Enroll Now
                 </a>
                 <div className="auth-buttons">
-                  <a
-                    href="#login-student"
+                  <Link
+                    to="/signup"
                     className="btn btn-auth-signin"
-                    onClick={(event) => handleNavClick(event, 'login-student')}
                   >
-                    Not signed in? Sign in
-                  </a>
+                    Sign in
+                  </Link>
                   <a
                     href="#login-student"
                     className="btn btn-auth-login"
                     onClick={(event) => handleNavClick(event, 'login-student')}
                   >
-                    Already an user? Log in
+                    Already enrolled? Log in
                   </a>
                   <a
                     href="#login-mentor"
