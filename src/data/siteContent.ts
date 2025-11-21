@@ -8,6 +8,8 @@ export interface Mentor {
   name: string;
   state: string;
   speciality: string;
+  achievements?: string[];
+  college?: string;
 }
 
 export interface StatHighlight {
@@ -44,12 +46,134 @@ export const navLinks: NavLink[] = [
 ];
 
 export const mentors: Mentor[] = [
-  { rank: 'AIR 17', name: 'Dr. Priya Sharma', state: 'Karnataka', speciality: 'Physics & Strategy' },
-  { rank: 'AIR 80', name: 'Dr. Arjun Reddy', state: 'Andhra Pradesh', speciality: 'Chemistry Expert' },
-  { rank: 'AIR 159', name: 'Dr. Meera Krishnan', state: 'Tamil Nadu', speciality: 'Biology Master' },
-  { rank: 'AIR 214', name: 'Dr. Rohit Kumar', state: 'Karnataka', speciality: 'Problem Solving' },
-  { rank: 'AIR 256', name: 'Dr. Ananya Iyer', state: 'Tamil Nadu', speciality: 'Time Management' },
-  { rank: 'AIR 342', name: 'Dr. Vikram Singh', state: 'Andhra Pradesh', speciality: 'Mock Test Expert' },
+  { 
+    rank: 'AIR 17', 
+    name: 'Nikhil Sonnad', 
+    state: 'Karnataka', 
+    speciality: 'Core Mentor',
+    achievements: ['Karnataka NEET Rank 1', 'JEE 99.47', 'NDA Cleared'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 80', 
+    name: 'Diganth', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 6', 'JEE 99.32', 'KCET Rank 4'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 159', 
+    name: 'Saish Pandit', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 10', 'JEE 99.76', 'IISER AIR 66', 'NDA Cleared', 'KCET Rank 2'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 214', 
+    name: 'Shreyas M', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 14', 'JEE 98.66'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 256', 
+    name: 'Harish Raj D V', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 17', 'JEE 99.10', 'KCET Top Rank'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 553', 
+    name: 'Siddharth', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 47', 'KCET Rank 9'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 562', 
+    name: 'Sai Charan', 
+    state: 'Andhra Pradesh', 
+    speciality: 'Senior Mentor',
+    achievements: ['Andhra Pradesh Rank 31', 'JEE 99.27'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 768', 
+    name: 'Viswajitt R P', 
+    state: 'Tamil Nadu', 
+    speciality: 'Senior Mentor',
+    achievements: ['Tamil Nadu Rank 36', 'JEE 99', 'JEE Physics 100% (twice)'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 985', 
+    name: 'Srujan D', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 71', 'JEE 98.52'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 2591', 
+    name: 'Balaji Tejas', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['Karnataka NEET Rank 185', 'JEE 98', 'IISER AIR 521'],
+    college: 'MBBS at JIPMER Pondicherry'
+  },
+  { 
+    rank: 'AIR 2213', 
+    name: 'Shadjay', 
+    state: 'Karnataka', 
+    speciality: 'Mentor',
+    achievements: ['Karnataka NEET Rank 160', 'JEE 97.2'],
+    college: 'MBBS at BMC'
+  },
+  { 
+    rank: 'AIR 2877', 
+    name: 'Preetam S Kori', 
+    state: 'Karnataka', 
+    speciality: 'Mentor',
+    achievements: ['Karnataka NEET Rank 194', 'JEE 97.16'],
+    college: 'MBBS at BMC'
+  },
+  { 
+    rank: 'AIR 3359', 
+    name: 'Nuthan', 
+    state: 'Karnataka', 
+    speciality: 'Mentor',
+    achievements: ['Karnataka NEET Rank 228', 'JEE 96'],
+    college: 'MBBS at BMC'
+  },
+  { 
+    rank: 'AIR 47803', 
+    name: 'Venkanagouda V Patil', 
+    state: 'Karnataka', 
+    speciality: 'Mentor',
+    achievements: ['Karnataka NEET Rank 2462', 'JEE 98.06'],
+    college: 'MBBS at BRIMS'
+  },
+  { 
+    rank: 'AIIMS Delhi', 
+    name: 'Unnamed Mentor', 
+    state: 'Karnataka', 
+    speciality: 'Senior Mentor',
+    achievements: ['NDA Cleared', 'KCET Rank 8'],
+    college: 'MBBS at AIIMS Delhi'
+  },
+  { 
+    rank: 'Mentor', 
+    name: 'Kishor V', 
+    state: 'Karnataka', 
+    speciality: 'Performance Coach',
+    achievements: ['Motivational Speaker', 'NEET Mentor & Student Performance Coach'],
+    college: ''
+  },
 ];
 
 export const stats: StatHighlight[] = [

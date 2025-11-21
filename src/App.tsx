@@ -23,6 +23,7 @@ const App = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [formValues, setFormValues] = useState<ContactFormPayload>(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showAllMentors, setShowAllMentors] = useState(false);
 
   const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     event.preventDefault();
@@ -292,19 +293,80 @@ const App = () => {
               </p>
             </div>
             <div className="mentor-grid">
-              {mentors.map((mentor) => (
+              {mentors.slice(0, 6).map((mentor) => (
                 <div className="mentor-card reveal-on-scroll" key={mentor.name}>
-                  <div className="mentor-rank">{mentor.rank}</div>
-                  <div className="mentor-info">
-                    <h3>{mentor.name}</h3>
-                    <p className="mentor-state">{mentor.state}</p>
-                    <span className="mentor-speciality">{mentor.speciality}</span>
+                  <div className="mentor-image-placeholder">
+                    <div className="mentor-image-icon">👤</div>
+                  </div>
+                  <div className="mentor-content">
+                    <div className="mentor-rank">{mentor.rank}</div>
+                    <div className="mentor-info">
+                      <h3>{mentor.name}</h3>
+                      <p className="mentor-state">{mentor.state}</p>
+                      {mentor.college && <p className="mentor-college">{mentor.college}</p>}
+                      {mentor.achievements && mentor.achievements.length > 0 && (
+                        <div className="mentor-achievements">
+                          {mentor.achievements.map((achievement, idx) => (
+                            <span key={idx} className="achievement-badge">{achievement}</span>
+                          ))}
+                        </div>
+                      )}
+                      <span className="mentor-speciality">{mentor.speciality}</span>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
+            {mentors.length > 6 && (
+              <div className="mentor-actions">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setShowAllMentors(!showAllMentors)}
+                >
+                  {showAllMentors ? 'Show Less' : 'See All Mentors'}
+                </button>
+              </div>
+            )}
           </div>
         </section>
+
+        {showAllMentors && (
+          <section className="all-mentors" id="all-mentors">
+            <div className="section-container">
+              <div className="section-header">
+                <h2 className="section-title">All Our Mentors</h2>
+                <p className="section-subtitle">
+                  Meet all our exceptional mentors who are ready to guide you to success
+                </p>
+              </div>
+              <div className="mentor-grid">
+                {mentors.map((mentor) => (
+                  <div className="mentor-card reveal-on-scroll" key={mentor.name}>
+                    <div className="mentor-image-placeholder">
+                      <div className="mentor-image-icon">👤</div>
+                    </div>
+                    <div className="mentor-content">
+                      <div className="mentor-rank">{mentor.rank}</div>
+                      <div className="mentor-info">
+                        <h3>{mentor.name}</h3>
+                        <p className="mentor-state">{mentor.state}</p>
+                        {mentor.college && <p className="mentor-college">{mentor.college}</p>}
+                        {mentor.achievements && mentor.achievements.length > 0 && (
+                          <div className="mentor-achievements">
+                            {mentor.achievements.map((achievement, idx) => (
+                              <span key={idx} className="achievement-badge">{achievement}</span>
+                            ))}
+                          </div>
+                        )}
+                        <span className="mentor-speciality">{mentor.speciality}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="about" id="about">
           <div className="section-container">
@@ -349,6 +411,17 @@ const App = () => {
                   No effort goes unnoticed at Shreyas Academy — every milestone unlocks real opportunities and unforgettable experiences that fuel your dreams and inspire you to reach new heights. Start your journey to greatness today, and discover just how far your hard work can take you!
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="cta-section">
+          <div className="section-container">
+            <div className="cta-content reveal-on-scroll">
+              <h2 className="cta-title">So What&apos;s Waiting You From Getting Guidance From India&apos;s Best Mentors and Grabbing Seat in Your Dream College.</h2>
+              <a href="#enroll" className="btn btn-primary cta-button" onClick={(event) => handleNavClick(event, 'enroll')}>
+                Enroll Now
+              </a>
             </div>
           </div>
         </section>
