@@ -9,6 +9,7 @@ import {
 } from './data/siteContent';
 import type { ContactFormPayload } from './services/contactService';
 import { submitContactForm } from './services/contactService';
+import caduceusLogo from './assets/caduceus-logo.svg';
 
 const initialFormState: ContactFormPayload = {
   name: '',
@@ -101,7 +102,7 @@ const App = () => {
       <nav className={`navbar ${navbarElevated ? 'elevated' : ''}`}>
         <div className="nav-container">
           <div className="logo-section">
-            <div className="logo-placeholder">S</div>
+            <img src={caduceusLogo} alt="Shreyas Academy Logo" className="logo-image" />
             <span className="logo-text">Shreyas Academy</span>
           </div>
           <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
@@ -436,7 +437,10 @@ const App = () => {
                 >
                   {plan.badge && <div className="badge">{plan.badge}</div>}
                   <h3 className="plan-name">{plan.name}</h3>
-                  <div className="plan-price">{plan.price}</div>
+                  <div className="plan-price">
+                    {plan.originalPrice && <span className="original-price">{plan.originalPrice}</span>}
+                    <span className="current-price">{plan.price}</span>
+                  </div>
                   <p className="plan-duration">{plan.duration}</p>
                   <ul className="plan-features">
                     {plan.features.map((feature) => (
@@ -445,6 +449,16 @@ const App = () => {
                       </li>
                     ))}
                   </ul>
+                  {plan.referralOffers && (
+                    <div className="referral-offers">
+                      {plan.referralOffers.map((offer) => (
+                        <div className="referral-offer" key={offer.label}>
+                          <span className="referral-label">{offer.label}</span>
+                          <span className="referral-price">{offer.price}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <button className="btn btn-primary" type="button">
                     Get Started
                   </button>

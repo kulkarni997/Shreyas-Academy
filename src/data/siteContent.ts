@@ -17,6 +17,11 @@ export interface StatHighlight {
   label: string;
 }
 
+export interface ReferralOffer {
+  label: string;
+  price: string;
+}
+
 export interface PricingPlan {
   name: string;
   price: string;
@@ -24,6 +29,8 @@ export interface PricingPlan {
   features: string[];
   badge?: string;
   featured?: boolean;
+  originalPrice?: string;
+  referralOffers?: ReferralOffer[];
 }
 
 export interface FAQItem {
@@ -186,6 +193,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: '1 Month Intensive',
     price: '₹2,599',
+    originalPrice: '₹3,999',
     duration: 'Perfect for quick revision',
     features: [
       'Daily 1.5-hour live classes',
@@ -194,10 +202,16 @@ export const pricingPlans: PricingPlan[] = [
       'Study materials & notes',
       'Basic mentor support',
     ],
+    referralOffers: [
+      { label: "Content Creator's Referral Code", price: '₹2,300' },
+      { label: "Mentor's Referral Code", price: '₹2,200' },
+      { label: "Founder / Co-founder Referral Code", price: '₹2,100' },
+    ],
   },
   {
     name: '6 Month Complete',
     price: '₹13,999',
+    originalPrice: '₹23,999',
     duration: 'Comprehensive preparation',
     badge: 'Most Popular',
     featured: true,
@@ -209,10 +223,16 @@ export const pricingPlans: PricingPlan[] = [
       '1-on-1 strategy sessions',
       'Priority doubt resolution',
     ],
+    referralOffers: [
+      { label: "Content Creator's Referral Code", price: '₹13,499' },
+      { label: "Mentor's Referral Code", price: '₹12,999' },
+      { label: "Founder / Co-founder Referral Code", price: '₹12,499' },
+    ],
   },
   {
     name: '16 Month Elite',
     price: '₹34,999',
+    originalPrice: '₹53,999',
     duration: 'Complete NEET journey',
     features: [
       'Everything in 6 Month plan',
@@ -223,6 +243,7 @@ export const pricingPlans: PricingPlan[] = [
       'Exam day strategy coaching',
       'Lifetime mentor support',
     ],
+    referralOffers: [{ label: 'Common Referral Code', price: '₹31,999' }],
   },
 ];
 
