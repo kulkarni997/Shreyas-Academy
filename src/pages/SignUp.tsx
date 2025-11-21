@@ -1,35 +1,91 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import type { SignupFormPayload } from '../services/signupService';
 import { submitSignupForm } from '../services/signupService';
 import caduceusLogo from '../assets/caduceus-logo.svg';
 
 const initialSignupState: SignupFormPayload = {
   name: '',
-  class: 'Class 11',
   email: '',
-  contactNumber: '',
-  guardianNumber: '',
+  phoneNumber: '',
+  fatherPhoneNumber: '',
+  class: '11th',
+  state: 'Karnataka',
 };
 
 const SignUp = () => {
   const [signupValues, setSignupValues] = useState<SignupFormPayload>(initialSignupState);
   const [isSignupSubmitting, setIsSignupSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSignedUp, setIsSignedUp] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignupInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
-    setSignupValues((prev) => ({ ...prev, [name]: value }));
+    
+    // For phone number fields, only allow digits
+    if (name === 'phoneNumber' || name === 'fatherPhoneNumber') {
+      const digitsOnly = value.replace(/\D/g, '');
+      setSignupValues((prev) => ({ ...prev, [name]: digitsOnly }));
+    } else {
+      setSignupValues((prev) => ({ ...prev, [name]: value }));
+    }
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validatePhoneNumber = (phone: string): boolean => {
+    // Remove any non-digit characters and check if it's exactly 10 digits
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length === 10;
   };
 
   const handleSignupSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    
+    // Validation
+    const newErrors: Record<string, string> = {};
+    
+    if (!signupValues.name.trim()) {
+      newErrors.name = 'Full Name is required';
+    }
+    
+    if (!signupValues.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(signupValues.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+    
+    if (!signupValues.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Phone Number is required';
+    } else if (!validatePhoneNumber(signupValues.phoneNumber)) {
+      newErrors.phoneNumber = 'Phone Number must be exactly 10 digits';
+    }
+    
+    if (!signupValues.fatherPhoneNumber.trim()) {
+      newErrors.fatherPhoneNumber = 'Father Phone Number is required';
+    } else if (!validatePhoneNumber(signupValues.fatherPhoneNumber)) {
+      newErrors.fatherPhoneNumber = 'Father Phone Number must be exactly 10 digits';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     setIsSignupSubmitting(true);
     try {
       await submitSignupForm(signupValues);
-      alert("Thank you for signing up! We'll contact you soon to complete your enrollment.");
-      setSignupValues(initialSignupState);
+      setIsSignedUp(true);
+      // Redirect to enrollment page after 3 seconds
+      setTimeout(() => {
+        window.location.href = '/#enroll';
+      }, 3000);
     } catch (error) {
       console.error(error);
       alert('There was an issue submitting your signup. Please try again.');
@@ -88,9 +144,28 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="signup-form">
-                <form onSubmit={handleSignupSubmit}>
+                {isSignedUp ? (
+                  <div className="signup-success">
+                    <div className="success-icon">✓</div>
+                    <h2>Registration Successful!</h2>
+                    <p>Check your phone for next steps.</p>
+                    <p className="success-subtext">
+                      We&apos;ve sent you and your parent SMS messages with enrollment details.
+                    </p>
+                    <div className="success-buttons">
+                      <Link to="/#enroll" className="btn btn-primary">
+                        Enroll Now
+                      </Link>
+                      <Link to="/" className="btn btn-secondary">
+                        Explore
+                      </Link>
+                    </div>
+                    <p className="redirect-notice">Redirecting to enrollment page in 3 seconds...</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSignupSubmit}>
                   <div className="form-group">
-                    <label htmlFor="signup-name">Name of the Student</label>
+                    <label htmlFor="signup-name">Full Name *</label>
                     <input
                       id="signup-name"
                       name="name"
@@ -100,23 +175,11 @@ const SignUp = () => {
                       onChange={handleSignupInputChange}
                       placeholder="Enter your full name"
                     />
+                    {errors.name && <span className="error-message">{errors.name}</span>}
                   </div>
+                  
                   <div className="form-group">
-                    <label htmlFor="signup-class">Class</label>
-                    <select
-                      id="signup-class"
-                      name="class"
-                      required
-                      value={signupValues.class}
-                      onChange={handleSignupInputChange}
-                    >
-                      <option value="Class 11">Class 11</option>
-                      <option value="Class 12">Class 12</option>
-                      <option value="Dropper">Dropper</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="signup-email">Email Address</label>
+                    <label htmlFor="signup-email">Email *</label>
                     <input
                       id="signup-email"
                       name="email"
@@ -126,35 +189,75 @@ const SignUp = () => {
                       onChange={handleSignupInputChange}
                       placeholder="Enter your email"
                     />
+                    {errors.email && <span className="error-message">{errors.email}</span>}
                   </div>
+                  
                   <div className="form-group">
-                    <label htmlFor="signup-contact">Contact Number</label>
+                    <label htmlFor="signup-phone">Phone Number *</label>
                     <input
-                      id="signup-contact"
-                      name="contactNumber"
+                      id="signup-phone"
+                      name="phoneNumber"
                       type="tel"
                       required
-                      value={signupValues.contactNumber}
+                      value={signupValues.phoneNumber}
                       onChange={handleSignupInputChange}
-                      placeholder="Enter your contact number"
+                      placeholder="Enter 10-digit phone number"
+                      maxLength={10}
                     />
+                    {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
                   </div>
+                  
                   <div className="form-group">
-                    <label htmlFor="signup-guardian">Guardian&apos;s Number</label>
+                    <label htmlFor="signup-father-phone">Father Phone Number *</label>
                     <input
-                      id="signup-guardian"
-                      name="guardianNumber"
+                      id="signup-father-phone"
+                      name="fatherPhoneNumber"
                       type="tel"
                       required
-                      value={signupValues.guardianNumber}
+                      value={signupValues.fatherPhoneNumber}
                       onChange={handleSignupInputChange}
-                      placeholder="Enter guardian&apos;s contact number"
+                      placeholder="Enter 10-digit father phone number"
+                      maxLength={10}
                     />
+                    {errors.fatherPhoneNumber && <span className="error-message">{errors.fatherPhoneNumber}</span>}
                   </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="signup-class">Class/Grade *</label>
+                    <select
+                      id="signup-class"
+                      name="class"
+                      required
+                      value={signupValues.class}
+                      onChange={handleSignupInputChange}
+                    >
+                      <option value="11th">11th</option>
+                      <option value="12th">12th</option>
+                      <option value="Dropper">Dropper</option>
+                    </select>
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="signup-state">State *</label>
+                    <select
+                      id="signup-state"
+                      name="state"
+                      required
+                      value={signupValues.state}
+                      onChange={handleSignupInputChange}
+                    >
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  
                   <button className="btn btn-primary" type="submit" disabled={isSignupSubmitting}>
-                    {isSignupSubmitting ? 'Submitting...' : 'Submit'}
+                    {isSignupSubmitting ? 'Submitting...' : 'Sign Up'}
                   </button>
                 </form>
+                )}
               </div>
             </div>
           </div>
@@ -165,4 +268,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-

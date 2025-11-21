@@ -1,13 +1,14 @@
 export interface SignupFormPayload {
   name: string;
-  class: 'Class 11' | 'Class 12' | 'Dropper';
   email: string;
-  contactNumber: string;
-  guardianNumber: string;
+  phoneNumber: string;
+  fatherPhoneNumber: string;
+  class: '11th' | '12th' | 'Dropper';
+  state: 'Karnataka' | 'Andhra Pradesh' | 'Tamil Nadu' | 'Other';
 }
 
-const DEFAULT_API_BASE_URL = 'http://localhost:4000';
-const SIGNUP_ENDPOINT = '/api/signup';
+const DEFAULT_API_BASE_URL = 'http://localhost:5000';
+const SIGNUP_ENDPOINT = '/api/auth/signup';
 
 export async function submitSignupForm(payload: SignupFormPayload): Promise<void> {
   const baseUrl = import.meta.env.VITE_API_BASE_URL || DEFAULT_API_BASE_URL;

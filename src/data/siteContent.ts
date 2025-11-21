@@ -46,7 +46,6 @@ export interface ContactDetail {
 
 export const navLinks: NavLink[] = [
   { id: 'home', label: 'Home' },
-  { id: 'problems', label: 'The Problem' },
   { id: 'mentor-panel', label: 'Mentors' },
   { id: 'about', label: 'About' },
   { id: 'enroll', label: 'Enroll' },
@@ -202,11 +201,6 @@ export const pricingPlans: PricingPlan[] = [
       'Study materials & notes',
       'Basic mentor support',
     ],
-    referralOffers: [
-      { label: "Content Creator's Referral Code", price: '₹2,300' },
-      { label: "Mentor's Referral Code", price: '₹2,200' },
-      { label: "Founder / Co-founder Referral Code", price: '₹2,100' },
-    ],
   },
   {
     name: '6 Month Complete',
@@ -223,11 +217,6 @@ export const pricingPlans: PricingPlan[] = [
       '1-on-1 strategy sessions',
       'Priority doubt resolution',
     ],
-    referralOffers: [
-      { label: "Content Creator's Referral Code", price: '₹13,499' },
-      { label: "Mentor's Referral Code", price: '₹12,999' },
-      { label: "Founder / Co-founder Referral Code", price: '₹12,499' },
-    ],
   },
   {
     name: '16 Month Elite',
@@ -243,7 +232,6 @@ export const pricingPlans: PricingPlan[] = [
       'Exam day strategy coaching',
       'Lifetime mentor support',
     ],
-    referralOffers: [{ label: 'Common Referral Code', price: '₹31,999' }],
   },
 ];
 

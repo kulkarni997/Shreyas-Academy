@@ -171,120 +171,6 @@ const App = () => {
           </div>
         </section>
 
-        <section className="problems" id="problems">
-          <div className="section-container">
-            <div className="section-header">
-              <h2 className="section-title">Major Challenges for NEET Aspirants – And How Shreyas Academy Transforms Their Journey</h2>
-            </div>
-            <div className="problems-content">
-              <div className="problems-intro reveal-on-scroll">
-                <p className="problems-lead">
-                  Every year, lakhs of students enroll in coaching classes that claim to prepare them for NEET. 
-                  But are they really getting what matters most for success?
-                </p>
-                <div className="problems-questions">
-                  <div className="question-item">
-                    <span className="question-icon">❌</span>
-                    <div className="question-content">
-                      <strong>Students are taught academics, but do they get proper, personalized guidance?</strong>
-                    </div>
-                    <div className="question-answer">
-                      <p>No — This is what Shreyas Academy is for.</p>
-                    </div>
-                  </div>
-                  <div className="question-item">
-                    <span className="question-icon">❌</span>
-                    <div className="question-content">
-                      <strong>Are they shown how to build and follow an effective plan till the exam?</strong>
-                    </div>
-                    <div className="question-answer">
-                      <p>No — This is what Shreyas Academy is for.</p>
-                    </div>
-                  </div>
-                  <div className="question-item">
-                    <span className="question-icon">❌</span>
-                    <div className="question-content">
-                      <strong>Do they receive consistent motivation to help them believe in their dream and push through tough times?</strong>
-                    </div>
-                    <div className="question-answer">
-                      <p>No — This is what Shreyas Academy is for.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="problems-miss reveal-on-scroll">
-                <h3 className="problems-subtitle">What Coaching Classes Miss</h3>
-                <p className="problems-description">
-                  Regular coaching just covers the syllabus. Very few address:
-                </p>
-                <div className="missed-points">
-                  <div className="missed-point">
-                    <div className="point-icon">🎯</div>
-                    <div>
-                      <h4>Personalized Discovery</h4>
-                      <p>Helping students discover what works for them as unique individuals.</p>
-                    </div>
-                  </div>
-                  <div className="missed-point">
-                    <div className="point-icon">📊</div>
-                    <div>
-                      <h4>Personal Monitoring</h4>
-                      <p>Monitoring every student&apos;s progress personally, guiding them at every step.</p>
-                    </div>
-                  </div>
-                  <div className="missed-point">
-                    <div className="point-icon">💡</div>
-                    <div>
-                      <h4>Real Experiences</h4>
-                      <p>Bringing in real, relatable experiences from toppers to solve doubts beyond textbooks.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="problems-solution reveal-on-scroll">
-                <h3 className="solution-title">Shreyas Academy: India&apos;s First Genuine NEET Mentorship Revolution</h3>
-                <p className="solution-intro">
-                  That&apos;s where Shreyas Academy stands apart:
-                </p>
-                <div className="solution-points">
-                  <div className="solution-point">
-                    <div className="solution-icon">🏆</div>
-                    <div>
-                      <h4>Elite Mentors from Top Medical Colleges</h4>
-                      <p>
-                        Students are mentored personally by experts from the best medical colleges in India — 
-                        not just teachers, but top NEET rank holders who have been in your shoes and cracked the code themselves.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="solution-point">
-                    <div className="solution-icon">🚀</div>
-                    <div>
-                      <h4>Beyond Academics: Complete Guidance</h4>
-                      <p>
-                        Our mentors don&apos;t just answer academic questions. They show you how to manage time, 
-                        overcome setbacks, and stay consistently motivated throughout the journey.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="solution-point">
-                    <div className="solution-icon">⭐</div>
-                    <div>
-                      <h4>Personal Attention for Every Student</h4>
-                      <p>
-                        Each student is monitored and supported at every stage — no one is left behind, 
-                        and everyone is treated as a future topper.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="mentor-panel" id="mentor-panel">
           <div className="section-container">
             <div className="section-header">
@@ -449,16 +335,6 @@ const App = () => {
                       </li>
                     ))}
                   </ul>
-                  {plan.referralOffers && (
-                    <div className="referral-offers">
-                      {plan.referralOffers.map((offer) => (
-                        <div className="referral-offer" key={offer.label}>
-                          <span className="referral-label">{offer.label}</span>
-                          <span className="referral-price">{offer.price}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                   <button className="btn btn-primary" type="button">
                     Get Started
                   </button>

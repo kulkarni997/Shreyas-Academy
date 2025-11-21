@@ -5,7 +5,7 @@ export interface ContactFormPayload {
   message: string;
 }
 
-const DEFAULT_API_BASE_URL = 'http://localhost:4000';
+const DEFAULT_API_BASE_URL = 'http://localhost:5000';
 const CONTACT_ENDPOINT = '/api/contact';
 
 export async function submitContactForm(payload: ContactFormPayload): Promise<void> {
