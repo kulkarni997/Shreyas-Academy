@@ -10,7 +10,7 @@ import {
 } from './data/siteContent';
 import type { ContactFormPayload } from './services/contactService';
 import { submitContactForm } from './services/contactService';
-import caduceusLogo from './assets/caduceus-logo.svg';
+import academyLogo from './assets/logo.jpg';
 
 const initialFormState: ContactFormPayload = {
   name: '',
@@ -103,7 +103,7 @@ const App = () => {
       <nav className={`navbar ${navbarElevated ? 'elevated' : ''}`}>
         <div className="nav-container">
           <Link to="/" className="logo-section">
-            <img src={caduceusLogo} alt="Shreyas Academy Logo" className="logo-image" />
+            <img src={academyLogo} alt="Shreyas Academy Logo" className="logo-image" />
             <span className="logo-text">Shreyas Academy</span>
           </Link>
           <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
