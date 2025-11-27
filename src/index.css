@@ -85,6 +85,7 @@ button {
   object-fit: contain;
   display: block;
   flex-shrink: 0;
+  border-radius: 50%;
 }
 
 .logo-text {

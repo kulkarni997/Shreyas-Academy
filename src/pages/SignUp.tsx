@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { SignupFormPayload } from '../services/signupService';
 import { submitSignupForm } from '../services/signupService';
-import caduceusLogo from '../assets/caduceus-logo.svg';
+import academyLogo from '../assets/logo.jpg';
 
 const initialSignupState: SignupFormPayload = {
   name: '',
@@ -99,7 +99,7 @@ const SignUp = () => {
       <nav className="navbar">
         <div className="nav-container">
           <Link to="/" className="logo-section">
-            <img src={caduceusLogo} alt="Shreyas Academy Logo" className="logo-image" />
+            <img src={academyLogo} alt="Shreyas Academy Logo" className="logo-image" />
             <span className="logo-text">Shreyas Academy</span>
           </Link>
           <div className="nav-links">
