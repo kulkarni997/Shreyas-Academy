@@ -983,6 +983,9 @@ button {
   border: 3px solid transparent;
   transition: all 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .pricing-card.featured {
@@ -1049,6 +1052,7 @@ button {
 .plan-features {
   list-style: none;
   margin-bottom: 2rem;
+  flex-grow: 1;
 }
 
 .plan-features li {
@@ -1061,6 +1065,11 @@ button {
 
 .plan-features li:last-child {
   border-bottom: none;
+}
+
+.pricing-card .btn {
+  margin-top: auto;
+  align-self: center;
 }
 
 .check-icon {

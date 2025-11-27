@@ -11,6 +11,7 @@ import {
 import type { ContactFormPayload } from './services/contactService';
 import { submitContactForm } from './services/contactService';
 import academyLogo from './assets/logo.jpg';
+import bookShowcase from './assets/book.jpg';
 
 const initialFormState: ContactFormPayload = {
   name: '',
@@ -298,6 +299,71 @@ const App = () => {
                   No effort goes unnoticed at Shreyas Academy — every milestone unlocks real opportunities and unforgettable experiences that fuel your dreams and inspire you to reach new heights. Start your journey to greatness today, and discover just how far your hard work can take you!
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="about" id="books-highlight">
+          <div className="section-container">
+            <div className="section-header">
+              <h2 className="section-title">
+                Get access to these expertly curated books included with our mentorship program.
+              </h2>
+            </div>
+            <div className="signup-content">
+              <div className="signup-info">
+                <p>
+                  The featured books – Biology, Chemistry, and Physics – are carefully authored and reviewed by
+                  top-performing mentors themselves. Each title embodies:
+                </p>
+                <ul className="signup-benefits">
+                  <li className="benefit-item">
+                    <div className="benefit-icon">📘</div>
+                    <div>
+                      <strong>Comprehensive topics crafted for NEET syllabus mastery</strong>
+                    </div>
+                  </li>
+                  <li className="benefit-item">
+                    <div className="benefit-icon">📝</div>
+                    <div>
+                      <strong>Exam-focused summaries and practice questions</strong>
+                    </div>
+                  </li>
+                  <li className="benefit-item">
+                    <div className="benefit-icon">🎯</div>
+                    <div>
+                      <strong>Insider notes and tips from actual NEET toppers</strong>
+                    </div>
+                  </li>
+                  <li className="benefit-item">
+                    <div className="benefit-icon">✅</div>
+                    <div>
+                      <strong>Peer-reviewed content for conceptual accuracy and clarity</strong>
+                    </div>
+                  </li>
+                </ul>
+                <p>
+                  Our books go beyond rote learning, combining foundational understanding with strategic techniques to
+                  help you maximize scores in every subject.
+                </p>
+              </div>
+              <div
+                className="signup-form"
+                style={{
+                  padding: 0,
+                  backgroundImage: `url(${bookShowcase})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  minHeight: '520px',
+                  height: '100%',
+                  width: '100%',
+                  boxShadow: '0 25px 45px rgba(15, 23, 42, 0.35)',
+                  border: '4px solid rgba(255, 255, 255, 0.8)',
+                  borderRadius: '20px',
+                  animation: 'jump 3s ease-in-out infinite',
+                }}
+              />
             </div>
           </div>
         </section>
