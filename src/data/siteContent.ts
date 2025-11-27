@@ -1,3 +1,5 @@
+// use the global URL type (or string) instead of importing Url from the Node 'url' module
+
 export interface NavLink {
   id: string;
   label: string;
@@ -10,6 +12,7 @@ export interface Mentor {
   speciality: string;
   achievements?: string[];
   college?: string;
+  imageUrl?: string | URL;
 }
 
 export interface StatHighlight {
@@ -58,7 +61,8 @@ export const mentors: Mentor[] = [
     state: 'Karnataka', 
     speciality: 'Core Mentor',
     achievements: ['Karnataka NEET Rank 1', 'JEE 99.47', 'NDA Cleared'],
-    college: 'MBBS at JIPMER Pondicherry'
+    college: 'MBBS at JIPMER Pondicherry',
+    imageUrl:''
   },
   { 
     rank: 'AIR 80', 
@@ -106,7 +110,8 @@ export const mentors: Mentor[] = [
     state: 'Andhra Pradesh', 
     speciality: 'Senior Mentor',
     achievements: ['Andhra Pradesh Rank 31', 'JEE 99.27'],
-    college: 'MBBS at JIPMER Pondicherry'
+    college: 'MBBS at JIPMER Pondicherry',
+    imageUrl: '/images/mentors/Charan.png'
   },
   { 
     rank: 'AIR 768', 

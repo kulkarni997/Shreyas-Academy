@@ -12,6 +12,255 @@ import type { ContactFormPayload } from './services/contactService';
 import { submitContactForm } from './services/contactService';
 import caduceusLogo from './assets/caduceus-logo.svg';
 
+// {mentors.map((mentor, idx) => (
+//   <div key={idx} >
+//     <div
+//   className="mentor-card"
+//   style={{
+//     display: 'flex',
+//     background: 'linear-gradient(90deg, #f0f9ff 50%, #e0f2fe 100%)',
+//     boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
+//     borderRadius: '16px',
+//     overflow: 'hidden',
+//     width: '100%',
+//     maxWidth: '700px',
+//     margin: '0 auto 32px auto',
+//     minHeight: '260px'
+//   }}
+// >
+//   {/* Left side: details */}
+//   <div style={{
+//     flex: 2,
+//     padding: '32px',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     justifyContent: 'center'
+//   }}>
+//     <h2 style={{ marginBottom: '8px', color: '#0ea5e9' }}>{mentor.name}</h2>
+//     <div style={{ fontWeight: 'bold', marginBottom: '6px' }}>{mentor.rank}</div>
+//     <div style={{ marginBottom: '8px', color: '#555' }}>{mentor.state}</div>
+//     <div style={{ marginBottom: '8px', color: '#2c7a7b' }}>{mentor.college}</div>
+//     <div style={{ marginBottom: '8px' }}>
+//       {mentors.achievements.map((a, idx) => (
+//         <div key={idx} style={{ fontSize: '15px', color: '#2563eb' }}>{a}</div>
+//       ))}
+//     </div>
+//     <div style={{ fontStyle: 'italic', color: '#0284c7' }}>{mentor.speciality}</div>
+//   </div>
+//   {/* Right side: image */}
+//   <div style={{ flex: 1, minWidth: '220px', height: '100%' }}>
+//     <img
+//       src={mentor.imageUrl}
+//       alt={mentor.name}
+//       style={{
+//         width: '100%',
+//         height: '100%',
+//         objectFit: 'cover',
+//         display: 'block'
+//       }}
+//     />
+//   </div>
+// </div>
+
+
+//   </div>
+// ))}
+
+
+
+// const mentors = [
+//   {
+//     name: 'Nikhil Sonad',
+//     rank: 'NEET AIR 17',
+//     state: 'Karnataka',
+//     college: 'MBBS at AIIMS Delhi',
+//     achievements: [
+//       'Karnataka NEET Rank 1',
+//       'JEE 99.47',
+//       'NDA cleared',
+//       'KCET Rank 8',
+//     ],
+//     speciality: 'NEET & JEE Strategy Mentor',
+//     imageUrl: '/images/mentors/Pic1.png',
+//   }]
+//   {
+//     name: 'Shreyas M',
+//     rank: 'NEET AIR 214',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Karnataka NEET Rank 14',
+//       'JEE 98.66',
+//     ],
+//     speciality: 'NEET Physics & Chemistry Mentor',
+//     imageUrl: '/images/mentors/shreyas-m.jpg',
+//   },
+//   {
+//     name: 'Diganth',
+//     rank: 'NEET AIR 80',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Karnataka NEET Rank 6',
+//       'JEE 99.32',
+//       'KCET Rank 4',
+//     ],
+//     speciality: 'NEET & KCET Mentor',
+//     imageUrl: '/images/mentors/diganth.jpg',
+//   },
+//   {
+//     name: 'Saish Pandit',
+//     rank: 'NEET AIR 17',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Karnataka NEET Rank 10',
+//       'JEE 99.76',
+//       'IISER AIR 66',
+//       'NDA cleared',
+//       'KCET Rank 2',
+//     ],
+//     speciality: 'All-round NEET, JEE & IISER Mentor',
+//     imageUrl: '/images/mentors/saish-pandit.jpg',
+//   },
+//   {
+//     name: 'Harish Raj D V',
+//     rank: 'NEET AIR 256',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Karnataka NEET Rank 17',
+//       'JEE 99.10',
+//       'KCET (Top Rank)',
+//     ],
+//     speciality: 'NEET & KCET Mentor',
+//     imageUrl: '/images/mentors/harish-raj-dv.jpg',
+//   },
+//   {
+//     name: 'Siddharth',
+//     rank: 'Karnataka NEET Rank 47',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'KCET Rank 9',
+//     ],
+//     speciality: 'NEET Biology Mentor',
+//     imageUrl: '/images/mentors/siddharth.jpg',
+//   },
+//   {
+//     name: 'Srujan D',
+//     rank: 'NEET AIR 985',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Karnataka NEET Rank 71',
+//       'JEE 98.52',
+//     ],
+//     speciality: 'NEET & JEE Mentor',
+//     imageUrl: '/images/mentors/srujan-d.jpg',
+//   },
+//   {
+//     name: 'Viswajitt R P',
+//     rank: 'NEET AIR 768',
+//     state: 'Tamil Nadu',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Tamil Nadu Rank 36',
+//       'JEE 99',
+//       'JEE Physics 100% (TWICE)',
+//     ],
+//     speciality: 'Physics Specialist Mentor',
+//     imageUrl: '/images/mentors/viswajitt-rp.jpg',
+//   },
+//   {
+//     name: 'Sai Charan',
+//     rank: 'NEET AIR 562',
+//     state: 'Andhra Pradesh',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Andhra Pradesh Rank 31',
+//       'JEE 99.27',
+//     ],
+//     speciality: 'NEET & JEE Mentor',
+//     imageUrl: 'public/Pic1.jpg'
+// ',
+//   },
+//   {
+//     name: 'Balaji Tejas',
+//     rank: 'NEET AIR 2591',
+//     state: 'Karnataka',
+//     college: 'MBBS at JIPMER Pondicherry',
+//     achievements: [
+//       'Karnataka NEET Rank 185',
+//       'JEE 98',
+//       'IISER AIR 521',
+//     ],
+//     speciality: 'NEET & IISER Mentor',
+//     imageUrl: '/images/mentors/balaji-tejas.jpg',
+//   },
+//   {
+//     name: 'Shadjay',
+//     rank: 'NEET AIR 2213',
+//     state: 'Karnataka',
+//     college: 'MBBS at BMC',
+//     achievements: [
+//       'Karnataka NEET Rank 160',
+//       'JEE 97.2',
+//     ],
+//     speciality: 'NEET Mentor',
+//     imageUrl: '/images/mentors/shadjay.jpg',
+//   },
+//   {
+//     name: 'Preetam S Kori',
+//     rank: 'NEET AIR 2877',
+//     state: 'Karnataka',
+//     college: 'MBBS at BMC',
+//     achievements: [
+//       'Karnataka NEET Rank 194',
+//       'JEE 97.16',
+//     ],
+//     speciality: 'NEET Mentor',
+//     imageUrl: '/images/mentors/preetam-kori.jpg',
+//   },
+//   {
+//     name: 'Nuthan',
+//     rank: 'NEET AIR 3359',
+//     state: 'Karnataka',
+//     college: 'MBBS at BMC',
+//     achievements: [
+//       'Karnataka NEET Rank 228',
+//       'JEE 96',
+//     ],
+//     speciality: 'NEET Mentor',
+//     imageUrl: '/images/mentors/nuthan.jpg',
+//   },
+//   {
+//     name: 'Venkangouda V Patil',
+//     rank: 'NEET AIR 47803',
+//     state: 'Karnataka',
+//     college: 'MBBS at BRIMS',
+//     achievements: [
+//       'Karnataka NEET Rank 2462',
+//       'JEE 98.06',
+//     ],
+//     speciality: 'Motivation & Strategy Mentor',
+//     imageUrl: '/images/mentors/venkangouda-v-patil.jpg',
+//   },
+//   {
+//     name: 'Kishor V',
+//     rank: 'Motivational Speaker',
+//     state: 'Karnataka',
+//     college: '',
+//     achievements: [
+//       'NEET Mentor',
+//       'Student Performance Coach',
+//     ],
+//     speciality: 'Motivational Speaker & Coach',
+//     imageUrl: '/images/mentors/kishor-v.jpg',
+//   },
+// ];
+
+
 const initialFormState: ContactFormPayload = {
   name: '',
   email: '',
