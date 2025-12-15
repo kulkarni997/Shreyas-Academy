@@ -206,8 +206,6 @@ export const pricingPlans: PricingPlan[] = [
     price: '₹13,999',
     originalPrice: '₹23,999',
     duration: 'Comprehensive preparation',
-    badge: 'Most Popular',
-    featured: true,
     features: [
       'Everything in 1 Month plan',
       'Personal mentor assignment',
@@ -221,6 +219,8 @@ export const pricingPlans: PricingPlan[] = [
     price: '₹34,999',
     originalPrice: '₹53,999',
     duration: 'Complete NEET journey',
+    badge: 'Most Recommended',
+    featured: true,
     features: [
       'Everything in 6 Month plan',
       'Full syllabus coverage',
