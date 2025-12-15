@@ -201,7 +201,6 @@ export const pricingPlans: PricingPlan[] = [
     duration: 'Perfect for quick revision',
     features: [
       'Daily 1.5-hour live classes',
-      'Access to recorded sessions',
       'Weekly doubt clearing sessions',
       'Study materials & notes',
       'Basic mentor support',
@@ -212,14 +211,11 @@ export const pricingPlans: PricingPlan[] = [
     price: '₹13,999',
     originalPrice: '₹23,999',
     duration: 'Comprehensive preparation',
-    badge: 'Most Popular',
-    featured: true,
     features: [
       'Everything in 1 Month plan',
       'Personal mentor assignment',
       'Weekly mock tests',
       'Performance analytics',
-      '1-on-1 strategy sessions',
       'Priority doubt resolution',
     ],
   },
@@ -228,6 +224,8 @@ export const pricingPlans: PricingPlan[] = [
     price: '₹34,999',
     originalPrice: '₹53,999',
     duration: 'Complete NEET journey',
+    badge: 'Most Recommended',
+    featured: true,
     features: [
       'Everything in 6 Month plan',
       'Full syllabus coverage',
@@ -236,6 +234,18 @@ export const pricingPlans: PricingPlan[] = [
       'Monthly progress reviews',
       'Exam day strategy coaching',
       'Lifetime mentor support',
+    ],
+  },
+  {
+    name: 'One on One Mentorship',
+    price: '₹7,999',
+    originalPrice: '₹9,999',
+    duration: 'Personalised 1-to-1 guidance for guaranteed improvement',
+    features: [
+      'Daily 1-on-1 live mentorship sessions',
+      'Personalised study plan',
+      'Exam-oriented strategy & planning',
+      'Performance analytics & improvement feedback',
     ],
   },
 ];
