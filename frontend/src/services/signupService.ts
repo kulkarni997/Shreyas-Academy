@@ -31,4 +31,3 @@ export async function submitSignupForm(payload: SignupFormPayload): Promise<void
     throw new Error(errorText || 'Failed to submit signup form');
   }
 }
-

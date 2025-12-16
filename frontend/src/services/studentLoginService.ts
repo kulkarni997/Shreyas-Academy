@@ -1,15 +1,3 @@
-export interface ContactFormPayload {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-
-export interface ContactFormResponse {
-  success: boolean;
-  message?: string;
-}
-
 export interface StudentLoginPayload {
     name: string;
     email: string;
@@ -32,7 +20,6 @@ export interface StudentLoginPayload {
   
   const DEFAULT_API_BASE_URL = 'http://localhost:5000';
   const STUDENT_LOGIN_ENDPOINT = '/api/auth/student-login';
-  const CONTACT_FORM_ENDPOINT = '/api/contact';
   
   export async function submitStudentLogin(payload: StudentLoginPayload): Promise<StudentLoginResponse> {
     const baseUrl = import.meta.env.VITE_API_BASE_URL || DEFAULT_API_BASE_URL;
@@ -49,21 +36,4 @@ export interface StudentLoginPayload {
     }
   
     return response.json();
-  }
-
-  export async function submitContactForm(payload: ContactFormPayload): Promise<ContactFormResponse> {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL || DEFAULT_API_BASE_URL;
-
-    const response = await fetch(`${baseUrl}${CONTACT_FORM_ENDPOINT}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({ message: 'Failed to submit contact form' }));
-      throw new Error(errorData.message || 'Failed to submit contact form');
-    }
-
-    return response.json();
-  }
+  } 
