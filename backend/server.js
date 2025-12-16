@@ -9,6 +9,8 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/api/payment", require("./routes/payment"));
+
 
 app.get('/', (req, res) => {
   res.send('Shreyas Academy backend running with Fast2SMS integration');
